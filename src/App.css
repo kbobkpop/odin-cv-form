@@ -1,0 +1,247 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --bg: white;
+  --text: black;
+  --formatted-bg-base: hsl(0, 0%, 92.5%);
+  --formatted-bg: var(--formatted-bg-base);
+  --button-outline: lightgray;
+  background: var(--bg);
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: black;
+    --text: white;
+    --formatted-bg-base: hsl(0, 0%, 92.5%);
+    --button-outline: lightgray;
+    --formatted-bg: hsl(from var(--formatted-bg-base) h s calc(100 - l));
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: white;
+  --text: black;
+  --button-outline: darkgray;
+  --formatted-bg: hsl(0, 0%, 92.5%);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: black;
+  --text: white;
+  --button-outline: lightgray;
+  --formatted-bg: hsl(from var(--formatted-bg-base) h s calc(100 - l));
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 660px 1fr;
+  flex-direction: row;
+  width: 100%;
+}
+
+.theme-area {
+  flex: 1;               
+  display: flex;
+  justify-content: end;      
+  align-items: flex-start;
+  padding: 16px;            
+}
+
+button.theme {
+  font-size: large;
+  padding: 4px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 660px;
+  min-height: 100vh;
+}
+
+.submission-screen {
+  justify-self: center;
+}
+
+.submission-screen .icon {
+  filter: grayscale(100%);
+}
+
+form.cv-form {
+  gap: 8px;
+}
+
+.draggable {
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+fieldset {
+  border: 1px solid var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 16px 16px 16px 16px;
+  gap: 16px;
+  margin: 8px 0;
+  /* min-width: 0; */
+}
+
+fieldset.contact-information {
+  padding: 8px 16px 16px 16px;
+}
+
+
+legend.section-headline {
+ padding: 0px 4px;
+ font-weight: bold;
+
+}
+
+button.form-button {
+  font-size: 14px;
+  padding: 4px 8px;
+  align-self: center;
+
+}
+
+button, .formatted-form {
+  border: 1px solid var(--button-outline);
+  border-radius: 4px;
+}
+
+.formatted-container {
+  border: 1px dashed var(--text);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding: 8px 8px;
+}
+
+.formatted-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--formatted-bg);
+  padding: 16px;
+  border-radius: 4px;
+  gap: 16px;
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+legend.section-headline {
+  font-size: larger;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formatted-form h2 {
+  margin: 0 0 16px;
+}
+
+.draggable {
+  cursor: grab;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg);
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.experience-card {
+  border: 1px solid var(--text);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.contact-info-container,
+.experience-card {
+  width: 100%
+}
+
+.experience-card-body,
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+.experience-card.dragging {
+  opacity: 0.4;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-element textarea {
+  resize: vertical;
+}
+
+.experience-card .delete-button {
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.date-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.date-row > div {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 4px;
+}
+
+.error-message {
+  color: red;
+  font-size: small;
+}
