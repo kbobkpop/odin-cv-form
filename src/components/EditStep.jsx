@@ -1,6 +1,4 @@
 import ContactForm from './ContactForm.jsx'
-/* import EducationForm from './EducationalExperienceForm.jsx'
-import PracticalExperienceForm from './PracticalExperienceForm.jsx' */
 import ExperienceForm from './ExperienceForm.jsx'
 
 export default function EditStep( { cv, setCV, setStep }) {
@@ -72,13 +70,6 @@ export default function EditStep( { cv, setCV, setStep }) {
             <button
                 className="form-button"
                 type="submit"
-                /* onClick={() => setStep('review')}
-                disabled={cv.contactInfo.email !== cv.contactInfo.repeatEmail} */
             >Review and Submit CV</button>
-            <button
-                className="form-button"
-                type="button"
-                onClick={() => setStep('review')}
-            >See Information</button>
         </form>)
     }
